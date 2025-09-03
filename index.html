@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cross-Domain Data Product Use Case</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="present">
+  <!-- Navigation -->
+  <div class="navigation" role="navigation" aria-label="Slide navigation"
+    style="display:flex; align-items:center; justify-content: space-between; padding: 10px; background:#f0f0f0;">
+    <!-- Left Home button -->
+    <a href="#page1" class="nav-btn" aria-label="Go to page 1"
+    onclick="showPage(1); return false;"
+    style="display:flex; align-items:center; text-decoration:none; color:black; font-size:16px;">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24" style="width:20px; height:20px; margin-right:5px;">
+      <path d="M3 12 L12 3 L21 12 V21 H3 V12 Z" />
+      <path d="M9 21 V12 H15 V21" />
+      </svg>
+    </a>
+
+    <!-- Previous button -->
+    <button class="nav-btn" id="prevBtn" type="button" aria-label="Previous slide">← Previous</button>
+
+    <!-- Page indicator -->
+    <div class="page-indicator" aria-live="polite" aria-atomic="true">
+      <span id="currentPage">1</span> of <span id="totalPages">8</span>
+    </div>
+
+    <!-- Next button -->
+    <button class="nav-btn" id="nextBtn" type="button" aria-label="Next slide">Next →</button>
+
+    <!-- Right Exit button -->
+    <a href="#page8" class="nav-btn" aria-label="Go to page 8"
+    onclick="showPage(8); return false;"
+    style="display:flex; align-items:center; text-decoration:none; color:black; font-size:16px;">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24" style="width:20px; height:20px; margin-left:5px;">
+      <path d="M16 17 L21 12 L16 7" />
+      <path d="M21 12 H9" />
+      <path d="M9 19 H6 A2 2 0 0 1 6 5 H9" />
+      </svg>
+    </a>
+  </div>
+
+  <!-- Initial Splash Page -->
+  <div class="splash-page active" id="splash">
+    <div class="splash-content">
+      <h1>Case Study Presentation</h1>
+      <h1>Leonardo Sona</h1>
+      <button class="splash-btn" onclick="startPresentation()">Start →</button>
+    </div>
+  </div>
+
+
+  <!-- Page 1: Personal Presentation -->
+  <div class="page active" id="page1">
+    <div class="header">
+      <h1>Enterprise Data Foundation and Reusable Assets</h1>
+      <p>Case Study Presentation</p>
+    </div>
+
+    <div class="placeholder-content">
+      <div class="placeholder-section">
+        <h2>About Me</h2>
+        <ul>
+            <li class="placeholder-text">Leonardo Sona "Leo".</li>
+            <li class="placeholder-text">Senior Product Owner on the Enterprise AI team at GSK.</li>
+            <li class="placeholder-text">Product Management, Supply Chain, Data Science and Analytics.</li>
+        </ul>
+    </div>
+
+    <div class="placeholder-section">
+        <h2>Case Study Assumptions</h2>
+        <ul>
+            <li class="placeholder-text">The Central Data Office team partners with all domains to enable Data Foundation.</li>
+            <li class="placeholder-text">Data quality and trust are not yet high, but teams are open to improvement ideas and discussion.</li>
+            <li class="placeholder-text">A minimal environment is available with: Data Fabric (metadata, policy, lineage, automation) and 
+                enables a Data-Mesh operating model (domain ownership, federated governance), resulting in clear accountability, and possible reuse across domains.</li>
+          </ul>
+                  
+    </div>
+    </div>
+  </div>
+
+  <!-- Page 2: Challenge Assumptions -->
+  <div class="page" id="page2">
+    <div class="header">
+      <h1>Approach to the Challenge</h1>
+      <p>From silos to shared value creation</p>
+    </div>
+
+    <div class="placeholder-content">
+      <div class="placeholder-section">
+        <h2>Key Questions</h2>
+        <p class="placeholder-text">“How would you align Quality Supply Chain needs with the central Data Office's vision of
+            reusable enterprise assets?”</p>
+        <p class="placeholder-text">“How would you balance “enterprise standards” with “local function-specific requirements”?”</p>
+        
+      </div>
+      <div class="placeholder-section">
+        <h2>Proposed Solution</h2>
+        <ul>
+          
+          <li class="placeholder-text">
+            <strong>Align QSC with enterprise vision by building on standard Core Assets and function-specific Views.</strong>
+            <ul>
+              <li class="placeholder-text"><em>Core Assets (Foundational)</em>: Leverage canonical, governed entities (Stock Quantity, Stock Valuation, SKU Cost) with enterprise contracts, lineage, and SLAs. 
+                QSC contributes domain expertise to ensure these assets meet real operational requirements such as real-time inventory visibility.</li>
+              <li class="placeholder-text"><em>Shared Views (QSC-Specific)</em>:  Build curated, reusable views from Core Assets that capture QSC business rules 
+                (Supplier Master with lead times, Stock Movement with quality flags, Cost Structure with variance tracking).</li>
+              <li class="placeholder-text"><em>Cross-Domain Data Products</em>:  Compose products serving outcomes across domains 
+                (Inventory Optimization Engine, Working Capital Analytics) by joining our views with other domains' data products.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>      
+      
+      <div class="placeholder-section">
+        <h2>Implementation</h2>
+        <ul>
+          <li class="placeholder-text"><strong>Fabric foundation:</strong> Support metadata, lineage, and policy-as-code applied to Core Assets.</li>
+          <li class="placeholder-text"><strong>Reusable layer:</strong>  QSC owns our Shared Views and Cross-Domain Products while leveraging enterprise-governed Core Assets.</li>
+          <li class="placeholder-text"><strong>Product thinking:</strong> Applied to data with clear ownership, discoverability, and reusability.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Page 3: Cross-Domain Data Lineage Diagram -->
+  <div class="page" id="page3">
+    <div class="header">
+      <h1>Cross-Domain Data Lineage Diagram</h1>
+      <p>Visual representation of data flow and cross-domain relationships</p>
+    </div>
+
+    <!-- TL;DR -->
+    <div class="tldr" role="note" aria-label="How to read this diagram">
+        <b>Read top → bottom:</b> ① <b>Core Assets</b> (foundational data products; source-domain owned) → ② <b>Shared Views</b> (standardized logic; producing-domain owned) → ③ <b>Domain Products</b> (business outcomes).
+        <p>Drafted for illustrative purposes only.</p>
+    </div>
+
+    <div class="lineage-container">
+      <svg class="lineage-svg" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" aria-label="Lineage diagram">
+        <title id="lineageTitle">Cross-Domain Data Lineage Diagram</title>
+        <desc id="lineageDesc">Core Assets feed Shared Views; domains assemble cross-domain data products across Quality Supply Chain, Commercial, R&amp;D, and Finance.</desc>
+
+        <!-- Core Assets Layer -->
+        <rect x="500" y="60" width="200" height="40" rx="20" fill="#a8e6cf" stroke="#7fb069" stroke-width="2"/>
+        <text x="600" y="85" text-anchor="middle" font-size="14" font-weight="bold">CORE ASSETS</text>
+
+        <!-- Assets -->
+        <rect x="420" y="120" width="120" height="30" rx="15" fill="#d4edda" stroke="#7fb069"/>
+        <text x="480" y="140" text-anchor="middle" font-size="11">Stock Quantity</text>
+        <text x="480" y="158" text-anchor="middle" class="owner-label">Supply Chain</text>
+
+        <rect x="560" y="120" width="120" height="30" rx="15" fill="#d4edda" stroke="#7fb069"/>
+        <text x="620" y="140" text-anchor="middle" font-size="11">Stock Valuation</text>
+        <text x="620" y="158" text-anchor="middle" class="owner-label">Finance (R2R)</text>
+
+        <rect x="700" y="120" width="80" height="30" rx="15" fill="#d4edda" stroke="#7fb069"/>
+        <text x="740" y="140" text-anchor="middle" font-size="11">Material Cost</text>
+        <text x="740" y="158" text-anchor="middle" class="owner-label">Finance (Costing)</text>
+
+        <!-- Views Layer -->
+        <rect x="450" y="180" width="300" height="40" rx="20" fill="#ffd6cc" stroke="#ff8566" stroke-width="2"/>
+        <text x="600" y="205" text-anchor="middle" font-size="14" font-weight="bold">SHARED VIEWS</text>
+
+        <!-- Shared Views -->
+        <rect x="50" y="250" width="100" height="25" rx="12" fill="#fff2cc" stroke="#d6b656"/>
+        <text x="100" y="267" text-anchor="middle" font-size="10">Supplier Master</text>
+        <text x="100" y="284" text-anchor="middle" font-size="10" class="owner-label">Procurement/MDM</text>
+
+        <rect x="170" y="250" width="100" height="25" rx="12" fill="#fff2cc" stroke="#d6b656"/>
+        <text x="220" y="267" text-anchor="middle" font-size="10">Material Master</text>
+        <text x="220" y="284" text-anchor="middle" font-size="10" class="owner-label">MDM</text>
+
+        <rect x="290" y="250" width="100" height="25" rx="12" fill="#fff2cc" stroke="#d6b656"/>
+        <text x="340" y="267" text-anchor="middle" font-size="10">Stock Movement</text>
+        <text x="340" y="284" text-anchor="middle" font-size="10" class="owner-label">Supply Chain</text>
+
+        <rect x="410" y="250" width="100" height="25" rx="12" fill="#fff2cc" stroke="#d6b656"/>
+        <text x="460" y="267" text-anchor="middle" font-size="10">Sales Velocity</text>
+        <text x="460" y="284" text-anchor="middle" font-size="10" class="owner-label">Commercial</text>
+
+        <rect x="530" y="250" width="100" height="25" rx="12" fill="#fff2cc" stroke="#d6b656"/>
+        <text x="580" y="267" text-anchor="middle" font-size="10">Cost Structure</text>
+        <text x="580" y="284" text-anchor="middle" font-size="10" class="owner-label">Finance (Costing)</text>
+
+        <rect x="650" y="250" width="100" height="25" rx="12" fill="#fff2cc" stroke="#d6b656"/>
+        <text x="700" y="267" text-anchor="middle" font-size="10">Market Trend</text>
+        <text x="700" y="284" text-anchor="middle" font-size="10" class="owner-label">Commercial</text>
+
+        <rect x="770" y="250" width="100" height="25" rx="12" fill="#fff2cc" stroke="#d6b656"/>
+        <text x="820" y="267" text-anchor="middle" font-size="10">Risk Exposure</text>
+        <text x="820" y="284" text-anchor="middle" font-size="10" class="owner-label">Finance (Risk)</text>
+
+        <rect x="890" y="250" width="100" height="25" rx="12" fill="#fff2cc" stroke="#d6b656"/>
+        <text x="940" y="267" text-anchor="middle" font-size="10">Quality Control</text>
+        <text x="940" y="284" text-anchor="middle" font-size="10" class="owner-label">QSC Quality</text>
+
+        <rect x="1010" y="250" width="100" height="25" rx="12" fill="#fff2cc" stroke="#d6b656"/>
+        <text x="1060" y="267" text-anchor="middle" font-size="10">Cash Flow</text>
+        <text x="1060" y="284" text-anchor="middle" font-size="10" class="owner-label">Finance (FP&amp;A)</text>
+
+
+        <!-- Domain Headers -->
+        <rect x="50" y="320" width="120" height="35" rx="5" fill="#9ca3af" stroke="#6b7280"/>
+        <text x="110" y="342" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Quality Supply Chain</text>
+
+        <rect x="320" y="320" width="120" height="35" rx="5" fill="#9ca3af" stroke="#6b7280"/>
+        <text x="380" y="342" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Commercial</text>
+
+        <rect x="590" y="320" width="120" height="35" rx="5" fill="#9ca3af" stroke="#6b7280"/>
+        <text x="650" y="342" text-anchor="middle" font-size="12" font-weight="bold" fill="white">R&amp;D</text>
+
+        <rect x="860" y="320" width="120" height="35" rx="5" fill="#9ca3af" stroke="#6b7280"/>
+        <text x="920" y="342" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Finance</text>
+
+        <!-- Data Products -->
+        <!-- Quality Supply Chain -->
+        <rect x="30" y="380" width="160" height="30" rx="15" fill="#e8f5e8" stroke="#4caf50"/>
+        <text x="110" y="400" text-anchor="middle" font-size="10">Supplier Performance</text>
+
+        <rect x="30" y="425" width="160" height="30" rx="15" fill="#e8f5e8" stroke="#4caf50"/>
+        <text x="110" y="445" text-anchor="middle" font-size="10">Quality Inspection</text>
+
+        <rect x="30" y="470" width="160" height="30" rx="15" fill="#e8f5e8" stroke="#4caf50"/>
+        <text x="110" y="490" text-anchor="middle" font-size="10">Supply Chain Risk</text>
+
+        <!-- Commercial -->
+        <rect x="300" y="380" width="160" height="30" rx="15" fill="#e3f2fd" stroke="#2196f3"/>
+        <text x="380" y="400" text-anchor="middle" font-size="10">Inventory Optimization Engine</text>
+
+        <rect x="300" y="425" width="160" height="30" rx="15" fill="#e3f2fd" stroke="#2196f3"/>
+        <text x="380" y="445" text-anchor="middle" font-size="10">Price Intelligence Platform</text>
+
+        <rect x="300" y="470" width="160" height="30" rx="15" fill="#e3f2fd" stroke="#2196f3"/>
+        <text x="380" y="490" text-anchor="middle" font-size="10">Customer Demand Forecasting</text>
+
+        <!-- R&D -->
+        <rect x="570" y="380" width="160" height="30" rx="15" fill="#fff3e0" stroke="#ff9800"/>
+        <text x="650" y="400" text-anchor="middle" font-size="10">Product Development ROI</text>
+
+        <rect x="570" y="425" width="160" height="30" rx="15" fill="#fff3e0" stroke="#ff9800"/>
+        <text x="650" y="445" text-anchor="middle" font-size="10">Innovation Pipeline Tracker</text>
+
+        <rect x="570" y="470" width="160" height="30" rx="15" fill="#fff3e0" stroke="#ff9800"/>
+        <text x="650" y="490" text-anchor="middle" font-size="10">Market Opportunity Analyzer</text>
+
+        <!-- Finance -->
+        <rect x="840" y="350" width="160" height="30" rx="15" fill="#fce4ec" stroke="#e91e63"/>
+        <text x="920" y="370" text-anchor="middle" font-size="10">Inventory Valuation</text>
+
+        <rect x="840" y="395" width="160" height="30" rx="15" fill="#fce4ec" stroke="#e91e63"/>
+        <text x="920" y="415" text-anchor="middle" font-size="10">Working Capital</text>
+
+        <rect x="840" y="440" width="160" height="30" rx="15" fill="#fce4ec" stroke="#e91e63"/>
+        <text x="920" y="460" text-anchor="middle" font-size="10">Cost Analysis</text>
+
+        <rect x="840" y="485" width="160" height="30" rx="15" fill="#fce4ec" stroke="#e91e63"/>
+        <text x="920" y="505" text-anchor="middle" font-size="10">Financial Risk</text>
+
+         <!-- Connections (assets -> views & cross-domain) -->
+      <line x1="480" y1="150" x2="100" y2="250" stroke="#999" stroke-width="1" opacity="0.6"/>
+      <line x1="480" y1="150" x2="220" y2="250" stroke="#999" stroke-width="1" opacity="0.6"/>
+      <line x1="480" y1="150" x2="340" y2="250" stroke="#999" stroke-width="1" opacity="0.6"/>
+      <line x1="620" y1="150" x2="460" y2="250" stroke="#999" stroke-width="1" opacity="0.6"/>
+      <line x1="620" y1="150" x2="1060" y2="250" stroke="#999" stroke-width="1" opacity="0.6"/>
+      <line x1="740" y1="150" x2="580" y2="250" stroke="#999" stroke-width="1" opacity="0.6"/>
+      <line x1="740" y1="150" x2="920" y2="460" stroke="#999" stroke-width="1" opacity="0.6"/>
+
+      <!-- ✅ Keep Green (QSC) -->
+      <line x1="100" y1="275" x2="110" y2="380" stroke="#4caf50" stroke-width="2" opacity="0.7"/>
+      <line x1="100" y1="275" x2="110" y2="470" stroke="#4caf50" stroke-width="2" opacity="0.7"/>
+      <line x1="340" y1="275" x2="110" y2="380" stroke="#4caf50" stroke-width="2" opacity="0.7"/>
+      <line x1="820" y1="275" x2="110" y2="470" stroke="#4caf50" stroke-width="2" opacity="0.7"/>
+      <line x1="940" y1="275" x2="110" y2="425" stroke="#4caf50" stroke-width="2" opacity="0.7"/>
+
+      <!-- 🔲 Faded Grey (was Blue, Orange, Pink) -->
+      <line x1="220" y1="275" x2="380" y2="425" stroke="#ccc" stroke-width="1" opacity="0.3"/>
+      <line x1="220" y1="275" x2="650" y2="380" stroke="#ccc" stroke-width="1" opacity="0.3"/>
+      <line x1="340" y1="275" x2="380" y2="380" stroke="#ccc" stroke-width="1" opacity="0.3"/>
+      <line x1="460" y1="275" x2="380" y2="470" stroke="#ccc" stroke-width="1" opacity="0.3"/>
+      <line x1="460" y1="275" x2="380" y2="380" stroke="#ccc" stroke-width="1" opacity="0.3"/>
+      <line x1="580" y1="275" x2="920" y2="440" stroke="#ccc" stroke-width="1" opacity="0.3"/>
+      <line x1="580" y1="275" x2="650" y2="380" stroke="#ccc" stroke-width="1" opacity="0.3"/>
+      <line x1="700" y1="275" x2="650" y2="470" stroke="#ccc" stroke-width="1" opacity="0.3"/>
+      <line x1="700" y1="275" x2="380" y2="425" stroke="#ccc" stroke-width="1" opacity="0.3"/>
+      <line x1="820" y1="275" x2="920" y2="485" stroke="#ccc" stroke-width="1" opacity="0.3"/>
+      <line x1="1060" y1="275" x2="920" y2="395" stroke="#ccc" stroke-width="1" opacity="0.3"/>
+
+        <!-- Legend -->
+        <rect x="50" y="560" width="360" height="200" fill="white" stroke="#ccc" rx="10"/>
+        <text x="200" y="582" text-anchor="middle" font-size="14" font-weight="bold">Legend</text>
+
+        <line x1="70" y1="605" x2="90" y2="605" stroke="#999" stroke-width="1"/>
+        <text x="100" y="610" font-size="11">Asset to View Connection</text>
+
+        <line x1="70" y1="625" x2="90" y2="625" stroke="#4caf50" stroke-width="2"/>
+        <text x="100" y="630" font-size="11">Cross-Domain View Usage</text>
+
+        <rect x="70" y="645" width="15" height="15" fill="#e8f5e8" stroke="#4caf50"/>
+        <text x="95" y="657" font-size="11">Quality Supply Chain</text>
+
+        <rect x="70" y="665" width="15" height="15" fill="#e3f2fd" stroke="#2196f3"/>
+        <text x="95" y="677" font-size="11">Commercial</text>
+
+        <rect x="70" y="685" width="15" height="15" fill="#fff3e0" stroke="#ff9800"/>
+        <text x="95" y="697" font-size="11">R&amp;D</text>
+
+        <rect x="70" y="705" width="15" height="15" fill="#fce4ec" stroke="#e91e63"/>
+        <text x="95" y="717" font-size="11">Finance</text>
+
+        <rect x="70" y="725" width="15" height="15" fill="#fff2cc" stroke="#d6b656"/>
+        <text x="95" y="737" font-size="11">Shared Views</text>
+      
+        <!-- Ownership note -->
+      <rect x="440" y="560" width="360" height="200" fill="white" stroke="#ccc" rx="10"/>
+      <text x="620" y="582" text-anchor="middle" font-size="14" font-weight="bold">Ownership Model</text>
+      <text x="450" y="606" font-size="11">• Core Assets → owned by source domain (per item label);</text>
+      <text x="450" y="626" font-size="11">• Shared Views → owned by producing domain (per item label);</text>
+      <text x="450" y="646" font-size="11">• Platform stewards policies, lineage, and DQ across all.</text>
+
+      <!-- Insights (moved to right side; no overlap) -->
+      <rect x="830" y="560" width="360" height="200" fill="white" stroke="#ccc" rx="10"/>
+      <text x="1010" y="582" text-anchor="middle" font-size="14" font-weight="bold">Cross-Domain Insights</text>
+      <text x="850" y="610" font-size="11">• Supplier Master View serves both Quality &amp; Risk</text>
+      <text x="850" y="630" font-size="11">• SKU Master View spans Commercial &amp; R&amp;D</text>
+      <text x="850" y="650" font-size="11">• Market Trend View supports R&amp;D &amp; Commercial</text>
+      <text x="850" y="670" font-size="11">• Cost Structure View bridges R&amp;D &amp; Finance</text>
+      <text x="850" y="690" font-size="11">• Risk Exposure View connects Quality &amp; Finance</text>
+      <text x="850" y="710" font-size="11">• Cash Flow View links Finance &amp; Commercial</text>
+      <text x="850" y="730" font-size="11">• Quality Control impacts multiple domains</text>
+
+        
+
+      </svg>
+    </div>
+
+  </div>
+
+  <!-- Page 4: Data Product Strategy -->
+  <div class="page" id="page4">
+    <div class="header">
+      <h1>Data Product Strategy</h1>
+      <p>Strategic framework for cross-domain data products</p>
+    </div>
+
+    <div class="placeholder-content">
+        <div class="placeholder-section">
+          <h2>Key Questions</h2>
+          <p class="placeholder-text">"How would you identify, define, and deliver the reusable data assets that QSC owns
+            and/or needs from other functions?"</p>
+          <p class="placeholder-text">"Who should own and steward such data assets?"</p>
+        </div>
+        
+        <div class="placeholder-section">
+            <h2>Proposed Solution</h2>
+            <ul>
+              <li class="placeholder-text"><strong>Identify and deliver reusable data assets through structured product thinking and cross-domain collaboration.</strong></li>
+              <ul>
+                <li class="placeholder-text"><strong>QSC-Owned Assets:</strong> Apply product thinking to identify and catalog internal data products based on usage patterns and business outcomes.</li>
+                <li class="placeholder-text"><strong>Cross-Domain Assets:</strong>  Co-create with source domains. Identify needs through business value assessment and cross-function dependency mapping. Prioritize delivery through adoption-driven roadmaps.</li>
+                <li class="placeholder-text"><strong>Asset Discovery:</strong> Maintain QSC Data Product Catalog showing what we own, what we consume, and usage patterns to guide future development.</li>
+              </ul>
+                      
+              <li class="placeholder-text">
+                <strong>Ownership accountability:</strong>
+                <ul>
+                  <li class="placeholder-text"><strong>Data Council:</strong> Cross-functional body (IT, business domains, legal/compliance) for strategic decisions.</li>
+                  <li class="placeholder-text"><strong>Platform Team:</strong> Owns technical standards, infrastructure, and cross-domain integration patterns.</li>
+                  <li class="placeholder-text"><strong>QSC Data Stewards:</strong> Own business logic and quality standards for their area.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        
+        <div class="placeholder-section">
+            <h2>Implementation</h2>
+            <ul>
+              <li class="placeholder-text"><strong>Adoption-driven roadmaps prioritizing by business value and cross-function dependencies.</strong></li>
+              <li class="placeholder-text"><strong>Collaborative development where QSC co-creates cross-domain assets with respective source domains.</strong></li>
+              <li class="placeholder-text"><strong>Clear cataloging of data products, usage patterns, and ownership responsibilities.</strong></li>
+              </li>
+            </ul>
+          </div>
+          
+
+        </div>
+</div>
+
+ <!-- Page 5: Cross-Domain Data Product Dependencies -->
+ <div class="page" id="page5">
+  <div class="header">
+    <h1>Cross-Domain Data Product Dependencies</h1>
+    <p>Mapping of function domains, data products, views, and business purpose</p>
+  </div>
+
+  <!-- TL;DR and scanning tip -->
+  <div class="tldr">
+    <b>How to scan:</b> start with <b>Domain</b> → read the <b>Business Purpose</b> (the “why”) → confirm the <b>Product</b> and its top <b>Upstream Data Products (Views & Core)</b> → see <b>Cross-Domain</b> links → contact the <b>Owner</b>. 
+  </div>
+  <!-- Micro legend for tags -->
+  <p id="dpd-help" class="table-note">
+    <span class="tag asset-tag">Core Asset</span>
+    <span class="tag view-tag">Primary View</span>
+    <span class="tag cross-domain">Cross-Domain</span>
+    
+  </p>
+
+  <div class="table-container">
+    <table class="table-compact" aria-describedby="dpd-help">
+      <thead>
+        <tr>
+          <th>Domain</th>
+          <th>Business Purpose (Outcome + Metric)</th>
+          <th>Data Product</th>
+          <th>Upstream Data Products and Views</th>
+          <th>Cross-Domain Dependencies</th>
+          <th>Owner</th>
+          <th>SLA / Trust Anchor</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- Quality Supply Chain -->
+        <tr class="domain-quality">
+          <td class="domain-cell">
+            <span class="domain-chip"><span class="dot"></span>Quality Supply Chain</span>
+          </td>
+          <td>Improve supplier reliability (OTIF ↑, Backorders ↓)</td>
+          <td>Supplier Performance Dashboard</td>
+          <td>
+            <span class="tag view-tag">Supplier Master</span>
+            <span class="tag view-tag">Stock Movement</span>
+            <span class="tag view-tag">Quality Inspection</span>
+            <span class="tag view-tag">Purchase Order</span>
+            <span class="tag asset-tag">Stock Quantity</span>
+            <span class="tag asset-tag">Stock Valuation</span>
+          </td>
+          <td>
+            <span class="tag cross-domain">Supplier Master → Finance Risk</span>
+            <span class="tag cross-domain">Stock Movement → Commercial</span>
+          </td>
+          <td>QSC — Supplier Ops (PO)</td>
+          <td>Daily freshness; DQ ≥ 97%</td>
+        </tr>
+
+        <tr class="domain-quality">
+          <td class="domain-cell"><span class="domain-chip"><span class="dot"></span>Quality Supply Chain</span></td>
+          <td>Prioritize high-value, high-risk checks (Defects ↓)</td>
+          <td>Quality Inspection Analytics</td>
+          <td>
+            <span class="tag view-tag">Quality Control</span>
+            <span class="tag view-tag">SKU Master</span>
+            <span class="tag view-tag">Cost Center</span>
+            <span class="tag view-tag">Inspection History</span>
+            <span class="tag asset-tag">SKU Cost</span>
+            <span class="tag asset-tag">Stock Valuation</span>
+          </td>
+          <td>
+            <span class="tag cross-domain">SKU Master → Commercial, R&amp;D</span>
+            <span class="tag cross-domain">Quality Control → All Domains</span>
+          </td>
+          <td>QSC — Quality Analytics (PO)</td>
+          <td>Hourly events; DQ ≥ 98%</td>
+        </tr>
+
+        <tr class="domain-quality">
+          <td class="domain-cell"><span class="domain-chip"><span class="dot"></span>Quality Supply Chain</span></td>
+          <td>Identify supply disruptions & financial exposure (ROSI ↑)</td>
+          <td>Supply Chain Risk Monitor</td>
+          <td>
+            <span class="tag view-tag">Supplier Risk</span>
+            <span class="tag view-tag">Inventory Aging</span>
+            <span class="tag view-tag">Financial Impact</span>
+            <span class="tag view-tag">Supply Chain Network</span>
+            <span class="tag asset-tag">Stock Quantity</span>
+            <span class="tag asset-tag">Stock Valuation</span>
+          </td>
+          <td>
+            <span class="tag cross-domain">Risk Exposure → Finance</span>
+            <span class="tag cross-domain">Financial Impact → Finance</span>
+          </td>
+          <td>QSC — Risk & Resilience (PO)</td>
+          <td>Daily; DQ ≥ 96%</td>
+        </tr>
+
+        <!-- Commercial -->
+        <tr class="domain-commercial">
+          <td class="domain-cell"><span class="domain-chip"><span class="dot"></span>Commercial</span></td>
+          <td>Reduce stockouts & holding costs (OTIF ↑, WCap ↓)</td>
+          <td>Inventory Optimization Engine</td>
+          <td>
+            <span class="tag view-tag">Stock Level</span>
+            <span class="tag view-tag">Sales Velocity</span>
+            <span class="tag view-tag">Demand Forecast</span>
+            <span class="tag view-tag">Seasonal Trend</span>
+            <span class="tag asset-tag">Stock Quantity</span>
+            <span class="tag asset-tag">Stock Valuation</span>
+          </td>
+          <td>
+            <span class="tag cross-domain">Sales Velocity → R&amp;D</span>
+            <span class="tag cross-domain">Stock Level → Finance</span>
+          </td>
+          <td>Commercial — Replenishment (PO)</td>
+          <td>4-hourly; DQ ≥ 97%</td>
+        </tr>
+
+        <tr class="domain-commercial">
+          <td class="domain-cell"><span class="domain-chip"><span class="dot"></span>Commercial</span></td>
+          <td>Optimize pricing vs cost & competition (Margin ↑)</td>
+          <td>Price Intelligence Platform</td>
+          <td>
+            <span class="tag view-tag">Product Pricing</span>
+            <span class="tag view-tag">Cost Structure</span>
+            <span class="tag view-tag">Market Segment</span>
+            <span class="tag asset-tag">SKU Cost</span>
+            <span class="tag asset-tag">Stock Valuation</span>
+          </td>
+          <td>
+            <span class="tag cross-domain">Cost Structure → R&amp;D, Finance</span>
+            <span class="tag cross-domain">Market Segment → R&amp;D</span>
+          </td>
+          <td>Commercial — Pricing (PO)</td>
+          <td>Daily; DQ ≥ 97%</td>
+        </tr>
+
+        <tr class="domain-commercial">
+          <td class="domain-cell"><span class="domain-chip"><span class="dot"></span>Commercial</span></td>
+          <td>Predict demand to plan supply (Forecast Accuracy ↑)</td>
+          <td>Customer Demand Forecasting</td>
+          <td>
+            <span class="tag view-tag">Historical Sales</span>
+            <span class="tag view-tag">Market Trend</span>
+            <span class="tag view-tag">Promotional Impact</span>
+            <span class="tag asset-tag">Stock Quantity</span>
+          </td>
+          <td>
+            <span class="tag cross-domain">Market Trend → R&amp;D</span>
+            <span class="tag cross-domain">Historical Sales → Finance</span>
+          </td>
+          <td>Commercial — Demand Planning (PO)</td>
+          <td>Daily; DQ ≥ 96%</td>
+        </tr>
+
+        <!-- R&D -->
+        <tr class="domain-rd">
+          <td class="domain-cell"><span class="domain-chip"><span class="dot"></span>R&amp;D</span></td>
+          <td>Prioritize projects by ROI (NPV ↑)</td>
+          <td>Product Development ROI Calculator</td>
+          <td>
+            <span class="tag view-tag">Development Cost</span>
+            <span class="tag view-tag">Market Potential</span>
+            <span class="tag view-tag">Competitive Landscape</span>
+            <span class="tag asset-tag">SKU Cost</span>
+            <span class="tag asset-tag">Stock Valuation</span>
+          </td>
+          <td>
+            <span class="tag cross-domain">Development Cost → Finance</span>
+            <span class="tag cross-domain">Market Potential → Commercial</span>
+          </td>
+          <td>R&amp;D — Portfolio Mgt (PO)</td>
+          <td>Weekly; DQ ≥ 95%</td>
+        </tr>
+
+        <tr class="domain-rd">
+          <td class="domain-cell"><span class="domain-chip"><span class="dot"></span>R&amp;D</span></td>
+          <td>Sequence innovation investments (Throughput ↑)</td>
+          <td>Innovation Pipeline Tracker</td>
+          <td>
+            <span class="tag view-tag">R&amp;D Projects</span>
+            <span class="tag view-tag">Budget Allocation</span>
+            <span class="tag view-tag">Technology Roadmap</span>
+              <span class="tag view-tag">Patent Portfolio</span>
+            <span class="tag asset-tag">Stock Valuation</span>
+            <span class="tag asset-tag">SKU Cost</span>
+          </td>
+          <td>
+            <span class="tag cross-domain">Budget Allocation → Finance</span>
+            <span class="tag cross-domain">Technology Roadmap → Commercial</span>
+          </td>
+          <td>R&amp;D — PMO (PO)</td>
+          <td>Monthly; DQ ≥ 95%</td>
+        </tr>
+
+        <tr class="domain-rd">
+          <td class="domain-cell"><span class="domain-chip"><span class="dot"></span>R&amp;D</span></td>
+          <td>Spot white-space opportunities (Pipeline ↑)</td>
+          <td>Market Opportunity Analyzer</td>
+          <td>
+            <span class="tag view-tag">Market Research</span>
+            <span class="tag view-tag">Customer Needs</span>
+            <span class="tag view-tag">Customer Needs</span>
+            <span class="tag view-tag">Technology Feasibility</span>
+            <span class="tag asset-tag">Stock Quantity</span>
+            <span class="tag asset-tag">Stock Valuation</span>
+          </td>
+          <td>
+            <span class="tag cross-domain">Market Research → Commercial</span>
+            <span class="tag cross-domain">Customer Needs → Commercial</span>
+          </td>
+          <td>R&amp;D — Insights (PO)</td>
+          <td>Quarterly; DQ ≥ 94%</td>
+        </tr>
+
+        <!-- Finance -->
+        <tr class="domain-finance">
+          <td class="domain-cell"><span class="domain-chip"><span class="dot"></span>Finance</span></td>
+          <td>Close books accurately (Compliance ↑)</td>
+          <td>Inventory Valuation Reports</td>
+          <td>
+            <span class="tag view-tag">Inventory Accounting</span>
+            <span class="tag view-tag">General Ledger</span>
+            <span class="tag view-tag">Audit Trail</span>
+            <span class="tag view-tag">Regulatory Compliance</span>
+            <span class="tag asset-tag">Stock Valuation</span>
+            <span class="tag asset-tag">Stock Quantity</span>
+          </td>
+          <td>
+            <span class="tag cross-domain">Inventory Accounting → Commercial</span>
+            <span class="tag cross-domain">Audit Trail → Quality</span>
+          </td>
+          <td>Finance — Record-to-Report (PO)</td>
+          <td>Daily EOD; DQ ≥ 99%</td>
+        </tr>
+
+        <tr class="domain-finance">
+          <td class="domain-cell"><span class="domain-chip"><span class="dot"></span>Finance</span></td>
+          <td>Free up cash (WCap ↓)</td>
+          <td>Working Capital Analytics</td>
+          <td>
+            <span class="tag view-tag">Cash Flow</span>
+            <span class="tag view-tag">Inventory Turnover</span>
+            <span class="tag view-tag">Days Sales Outstanding</span>
+            <span class="tag view-tag">Payment Terms</span>
+            <span class="tag asset-tag">Stock Quantity</span>
+            <span class="tag asset-tag">Stock Valuation</span>
+          </td>
+          <td>
+            <span class="tag cross-domain">Cash Flow → Commercial</span>
+            <span class="tag cross-domain">Inventory Turnover → Commercial</span>
+          </td>
+          <td>Finance — FP&amp;A (PO)</td>
+          <td>Daily; DQ ≥ 97%</td>
+        </tr>
+
+        <tr class="domain-finance">
+          <td class="domain-cell"><span class="domain-chip"><span class="dot"></span>Finance</span></td>
+          <td>Reduce unit costs (Gross Margin ↑)</td>
+          <td>Cost Analysis Dashboard</td>
+          <td>
+            <span class="tag view-tag">Cost Breakdown</span>
+            <span class="tag view-tag">Margin Analysis</span>
+            <span class="tag view-tag">Variance Analysis</span>
+            <span class="tag view-tag">Budget vs Actual</span>
+            <span class="tag asset-tag">SKU Cost</span>
+            <span class="tag asset-tag">Stock Valuation</span>
+          </td>
+          <td>
+            <span class="tag cross-domain">Cost Breakdown → Commercial</span>
+            <span class="tag cross-domain">Margin Analysis → Commercial</span>
+          </td>
+          <td>Finance — Costing (PO)</td>
+          <td>Weekly; DQ ≥ 97%</td>
+        </tr>
+
+        <tr class="domain-finance">
+          <td class="domain-cell"><span class="domain-chip"><span class="dot"></span>Finance</span></td>
+          <td>Manage exposure (VaR ↓)</td>
+          <td>Financial Risk Assessment</td>
+          <td>
+            <span class="tag view-tag">Risk Exposure</span>
+            <span class="tag view-tag">Scenario Analysis</span>
+            <span class="tag view-tag">Stress Testing View</span>
+            <span class="tag view-tag">Portfolio Diversification View</span>
+            <span class="tag asset-tag">Stock Quantity</span>
+            <span class="tag asset-tag">Stock Valuation</span>
+            <span class="tag asset-tag">SKU Cost</span>
+          </td>
+          <td>
+            <span class="tag cross-domain">Risk Exposure → Quality</span>
+            <span class="tag cross-domain">Scenario Analysis → Commercial</span>
+          </td>
+          <td>Finance — Treasury Risk (PO)</td>
+          <td>Daily; DQ ≥ 96%</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="summary-stats">
+    <div class="stat-card">
+      <div class="stat-number">4</div>
+      <div class="stat-label">Business Domains</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">13</div>
+      <div class="stat-label">Data Products (reusable)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">3</div>
+      <div class="stat-label">Core Assets</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">45+</div>
+      <div class="stat-label">Views in Catalog</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">25+</div>
+      <div class="stat-label">Cross-Domain Links</div>
+    </div>
+  </div>
+
+  
+</div>
+
+<!-- Page 6: Stakeholder Management -->
+<div class="page" id="page6">
+  <div class="header">
+    <h1>Stakeholder Management</h1>
+    <p>Building alignment across domains and leadership</p>
+  </div>
+
+  <div class="placeholder-content">
+    
+    <div class="placeholder-section">
+      <h2>Key Questions</h2>
+      <p class="placeholder-text">"How would you engage other functions (Finance, Commercial, R&amp;D) to collaborate instead of duplicating data assets?"</p>
+      <p class="placeholder-text">"How would you handle resistance (e.g., stakeholders insisting their version is different)?"</p>
+    </div>
+    
+    <div class="placeholder-section">
+      <h2>Proposed Solution</h2>
+      <ul>
+          <li class="placeholder-text"><strong>Engage functions through structured collaboration:</strong></li>
+            <ul>
+              <li class="placeholder-text"><strong>Quick Wins:</strong> Start with domains already experiencing pain (e.g., Finance struggling with inventory valuation inconsistencies).</li>
+              <li class="placeholder-text"><strong>Control Retention:</strong> Let domains keep operational control of their source systems while standardizing the shared layer.</li>
+              <li class="placeholder-text"><strong>Collaborative Development:</strong> Co-create shared views that serve multiple functions needs while maintaining single source of truth.</li>
+            </ul>
+          <li class="placeholder-text"><strong>Validation and managed transition:</strong></li>
+          <ul>
+            <li class="placeholder-text"><strong>Acknowledge Specificity:</strong> Validate through concrete use case comparison.</li>
+            <li class="placeholder-text"><strong>Managed Migration:</strong>  Plan systematic replacement and deprecation of QSC duplicate assets with clear timeline and parallel operation periods.</li>
+            <li class="placeholder-text"><strong>Change Management:</strong> Deploy tailored messaging by stakeholder based on type of change and demand, with regular progress demos and updates on planned sunset for duplicates.</li>
+          </ul>
+      </ul>
+        
+    </div>
+
+    <div class="placeholder-section">
+      <h2>Risk-Based Migration Strategy</h2>
+      <ul>
+        <li class="placeholder-text"><strong>Prioritization Framework:</strong></li>
+          <ul>
+            <li class="placeholder-text"><strong>High Impact, Low Risk First:</strong> Start with reference data (supplier master, SKU master) where inconsistencies cause visible business pain but technical risk is manageable.</li>
+            <li class="placeholder-text"><strong>Critical Path Analysis:</strong> Map dependencies - migrate upstream Core Assets before downstream Cross-Domain Products to avoid cascading failures.</li>
+            <li class="placeholder-text"><strong>Business Continuity Gates:</strong> No legacy system shutdown until new shared asset meets 100% of critical use cases with equivalent or better performance.</li>
+          </ul>
+        <li class="placeholder-text"><strong>Contingency Planning:</strong></li>
+          <ul>
+            <li class="placeholder-text"><strong>Rollback Strategy:</strong> Maintain parallel systems with automated fallback support for 90 days post-migration for critical assets.</li>
+            <li class="placeholder-text"><strong>Performance Guarantees:</strong> If shared assets don't meet domain-specific SLAs, domain retains right to enhanced local views or temporary exemptions.</li>
+            <li class="placeholder-text"><strong>Stakeholder Compensation:</strong> Functions that contribute high-value assets to shared foundation receive priority support and enhanced capabilities.</li>
+          </ul>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- Page 7: Adoption and Trust -->
+<div class="page" id="page7">
+  <div class="header">
+    <h1>Adoption and Trust</h1>
+    <p>Ensuring successful implementation and user confidence</p>
+  </div>
+
+  <div class="placeholder-content">
+    <div class="placeholder-section">
+      <h2>Key Questions</h2>
+      <p class="placeholder-text">"What steps would you take to build trust in the shared data assets?"</p>
+      <p class="placeholder-text">"What metrics would you use to measure adoption and success?"</p>
+    </div>
+
+    <div class="placeholder-section">
+      <h2>Proposed Solution</h2>
+      <p><strong>Measure and expose key metrics:</strong></p>
+      <ul>
+        <li class="placeholder-text"><strong>Trust Metrics:</strong> Data Quality Pass Rate (97%+), Lineage Coverage (92%+), SLA Adherence (95%+), Mean Time to Resolution (<4 hours for P1 issues)</li>
+          <li class="placeholder-text"><strong>Adoption Journey Tracking:</strong> Monitor progression through Aware → Try → Use → Rely → Advocate stages, identifying conversion rates and drop-off points to target enablement efforts by stage.</li>
+          <li class="placeholder-text"><strong>Business Impact Metrics:</strong> 
+            <ul>
+              <li class="placeholder-text"><strong>Duplicate data processing cost reduction (target: 40% by Year 1)</strong></li>
+              <li class="placeholder-text"><strong>Time-to-insight improvement (target: 50% faster analytics delivery)</strong></li>
+              <li class="placeholder-text"><strong>Cross-domain collaboration increase (measured by shared view usage)</strong></li>
+              <li class="placeholder-text"><strong>Data-driven decision quality (reduction in data-related business errors)</strong></li>
+              <li class="placeholder-text"><strong>Regulatory compliance improvement (audit finding reduction)</strong></li>
+            </ul>
+          </li>
+      </ul>
+      
+  </div>
+  
+  <svg viewBox="0 0 620 220" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="trustTitle trustDesc">
+      <title id="trustTitle">Trust Metrics Dashboard</title>
+      <desc id="trustDesc">Real-time metrics showing data quality, lineage coverage, SLA adherence, and usage growth.</desc>
+    
+      <!-- Card -->
+      <rect x="10" y="10" width="600" height="200" rx="10" fill="#fff" stroke="#e2e8f0"/>
+      <text x="30" y="36" font-family="Segoe UI,Arial" font-size="8" font-weight="700">Trust Metrics Dashboard</text>
+    
+      <!-- Row 1: Usage -->
+      <text x="30" y="64" font-family="Segoe UI,Arial" font-size="6">Usage Weekly Growth</text>
+      <rect x="160" y="56" width="430" height="10" fill="#e2e8f0"/>
+      <rect x="160" y="56" width="350" height="10" fill="#93c5fd"/>
+    
+      <!-- Row 2: DQ -->
+      <text x="30" y="100" font-family="Segoe UI,Arial" font-size="6">DQ Pass Rate: 97%+</text>
+      <rect x="160" y="92" width="430" height="10" fill="#e2e8f0"/>
+      <rect x="160" y="92" width="417" height="10" fill="#86efac"/>
+    
+      <!-- Row 3: Lineage -->
+      <text x="30" y="136" font-family="Segoe UI,Arial" font-size="6">Lineage Coverage: 92%+</text>
+      <rect x="160" y="128" width="430" height="10" fill="#e2e8f0"/>
+      <rect x="160" y="128" width="396" height="10" fill="#fde68a"/>
+    
+      <!-- Row 4: SLA -->
+      <text x="30" y="172" font-family="Segoe UI,Arial" font-size="6">SLA Adherence: 95%+</text>
+      <rect x="160" y="164" width="430" height="10" fill="#e2e8f0"/>
+      <rect x="160" y="164" width="409" height="10" fill="#86efac"/>
+    </svg>
+
+    <div class="placeholder-section">
+      <h2>Implementation:</h2>
+      <ul>
+          <li class="placeholder-text"><strong>Strategic Rollout:</strong> Start with high-impact, low-risk use cases to build early wins and momentum.</li>
+          <li class="placeholder-text"><strong>Champion Network:</strong> Identify and enable domain champions through requirements gathering, training sessions, and ongoing support to create grassroots advocacy.</li>
+      </ul>
+    </div>
+
+    <svg viewBox="0 0 720 220" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="trustTitle trustDesc">
+      <defs><style>.h{font:700 8px Segoe UI,Arial}.t{font:6px Segoe UI,Arial;fill:#334155}</style></defs>
+      <polygon points="40,40 680,40 600,80 120,80" fill="#dbeafe"/><text x="360" y="65" text-anchor="middle" class="h">Aware</text>
+      <polygon points="80,90 640,90 570,125 150,125" fill="#bfdbfe"/><text x="360" y="115" text-anchor="middle" class="h">Try</text>
+      <polygon points="120,135 600,135 540,165 180,165" fill="#93c5fd"/><text x="360" y="158" text-anchor="middle" class="h">Use</text>
+      <polygon points="160,170 560,170 520,195 200,195" fill="#60a5fa"/><text x="360" y="190" text-anchor="middle" class="h">Rely → Advocate</text>
+      <text x="40" y="28" class="t">Adoption Journey: Track conversion & drop-offs; target enablement by stage</text>
+    </svg>
+   
+  </div>
+</div>
+
+<!-- Page 8: Thank You -->
+<div class="page" id="page8" role="region" aria-labelledby="h-page8">
+  <div class="header">
+    <h1 id="h-page8">Questions, feedback, or next steps?</h1>
+    <p></p>
+  </div>
+
+  <div class="placeholder-content" style="text-align:center">
+    <div class="placeholder-section" style="display:inline-block; text-align:left;">
+      <div class="container-fluid title">
+        <div class="row">
+          <div class="col">
+            <!-- Prefer h2 inside content to keep a single h1 per page -->
+            <h2>Recap</h2>
+            <ul>
+              <li class="placeholder-text"><strong>Align local needs with enterprise assets via the three-layer model (Core → Views → Products).</strong></li>
+              <li class="placeholder-text"><strong>Make ownership explicit, and drive adoption with trust metrics and transparent engagement.</strong></li>
+            </ul>
+
+            <h2>Thank You!</h2>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+        <button class="nav-btn" onclick="showPage(1); window.scrollTo({top:0,behavior:'smooth'})">
+          ↺ Back to Start
+        </button>
+        <button class="nav-btn" onclick="showPage(5); window.scrollTo({top:0,behavior:'smooth'})">
+          → Jump to Dictionary
+        </button>
+
+        <!-- LinkedIn Icon Link (use <a>, not <button>) -->
+        <a
+          class="linkedin-btn"
+          href="https://www.linkedin.com/in/leonardosona"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit my LinkedIn profile"
+          title="Visit my LinkedIn profile"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.45 20.45h-3.554v-5.568c0-1.328-.028-3.04-1.852-3.04-1.853 0-2.137 1.447-2.137 2.943v5.665H9.354V9h3.414v1.561h.048c.476-.9 1.636-1.852 3.366-1.852 3.6 0 4.26 2.368 4.26 5.448v6.293zM5.337 7.433a2.064 2.064 0 11-.002-4.129 2.064 2.064 0 01.002 4.129zM7.115 20.45H3.559V9h3.556v11.45zM22.225 0H1.771C.792 0 0 .792 0 1.771v20.453C0 23.208.792 24 1.771 24h20.454C23.208 24 24 23.208 24 22.225V1.771C24 .792 23.208 0 22.225 0z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<button id="togglePresent" class="nav-btn" style="position:fixed; right:16px; bottom:80px; z-index:10000;">
+  A+
+</button>
+<script>
+  document.getElementById('togglePresent')?.addEventListener('click', () => {
+    document.body.classList.toggle('present');
+  });
+</script>
+
+
+<script src="app.js" defer></script>
+
+</body>
+</html>

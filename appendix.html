@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Appendix</title>
+  <!-- link to your existing CSS & JS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page active">
+    <div class="header">
+      <h1>Appendix</h1>
+    </div>
+
+   <!--  <div class="placeholder-content">
+      <div class="placeholder-section">
+        <h2>Deep Dive</h2>
+        <p class="placeholder-text">Put any backup content here.</p>
+      </div>
+      <p class="placeholder-text"><a href="index.html#page=1">← Back to deck</a></p>
+    </div>
+  </div>-->
+
+  
+  <div class="placeholder-content" id="medallion-mapping">
+    <div class="placeholder-section">
+      <h2>Medallion Mapping (Bronze → Silver → Gold)</h2>
+      <ul>
+        <li class="placeholder-text"><strong>Bronze (Raw/Landing):</strong> immutable, source-faithful ingests for auditability.</li>
+        <li class="placeholder-text"><strong>Silver (Canonical Core):</strong> our <em>Enterprise Core</em> — standardized keys, cleansed & conformed, with contracts, lineage, SLAs and DQ rules.</li>
+        <li class="placeholder-text"><strong>Gold (Curated/Product):</strong> 
+          <em>Shared Views</em> (reusable slices), <em>QSC Extensions</em> (domain-specific detail that joins to Silver), and <em>Cross-Domain Products</em> (compositions for decisions).
+        </li>
+      </ul>
+      <p class="placeholder-text"><strong>Consumption pattern:</strong> Finance/Commercial can use <em>Silver/Core</em> as-is; QSC joins <em>Gold-Domain Extensions</em> to Silver for batch/QA detail.</p>
+      <p class="placeholder-text"><strong>Change policy:</strong> Silver/Core changes are rare & versioned (major if breaking); Gold extensions evolve faster (minor when additive).</p>
+    </div>
+
+  <!-- Compact ladder visual -->
+    <svg viewBox="0 0 860 160" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="medTitle medDesc">
+    <title id="medTitle">Medallion Mapping Ladder</title>
+    <desc id="medDesc">Bronze raw feeds Silver canonical core; Gold tier contains shared views, QSC extensions, and cross-domain products.</desc>
+
+    <!-- Bronze -->
+    <rect x="20" y="20" width="200" height="36" rx="8" fill="#e5e7eb" stroke="#cbd5e1"/>
+    <text x="120" y="44" text-anchor="middle" font-family="Segoe UI,Arial" font-size="12" font-weight="700">Bronze — Raw/Landing</text>
+
+    <!-- Arrow -->
+    <path d="M220 38 L265 38" stroke="#94a3b8" stroke-width="2"/>
+    <polygon points="265,34 275,38 265,42" fill="#94a3b8"/>
+
+    <!-- Silver (Core) -->
+    <rect x="275" y="20" width="220" height="36" rx="8" fill="#d1fae5" stroke="#6ee7b7"/>
+    <text x="385" y="44" text-anchor="middle" font-family="Segoe UI,Arial" font-size="12" font-weight="700">Silver — Canonical Core</text>
+
+    <!-- Arrow down to Gold -->
+    <path d="M385 56 L385 82" stroke="#94a3b8" stroke-width="2"/>
+    <polygon points="381,82 389,82 385,92" fill="#94a3b8"/>
+
+    <!-- Gold band label -->
+    <text x="385" y="112" text-anchor="middle" font-family="Segoe UI,Arial" font-size="12" font-weight="700">Gold — Curated/Product</text>
+
+    <!-- Gold: Shared Views -->
+    <rect x="40" y="120" width="220" height="26" rx="6" fill="#fde68a" stroke="#fcd34d"/>
+    <text x="150" y="138" text-anchor="middle" font-family="Segoe UI,Arial" font-size="11">Gold-Shared: Shared Views</text>
+
+    <!-- Gold: QSC Extensions -->
+    <rect x="320" y="120" width="220" height="26" rx="6" fill="#bfdbfe" stroke="#93c5fd"/>
+    <text x="430" y="138" text-anchor="middle" font-family="Segoe UI,Arial" font-size="11">Gold-Domain: QSC Extensions</text>
+
+    <!-- Gold: Cross-Domain Products -->
+    <rect x="600" y="120" width="220" height="26" rx="6" fill="#fecaca" stroke="#fca5a5"/>
+    <text x="710" y="138" text-anchor="middle" font-family="Segoe UI,Arial" font-size="11">Gold-Product: Cross-Domain Products</text>
+
+    <!-- Join hint from Extensions to Core -->
+    <path d="M430 120 C430 95, 385 95, 385 56" stroke="#93c5fd" stroke-width="2" fill="none" opacity="0.9"/>
+    </svg>
+
+  <!-- Micro-legend tying to your terms -->
+    <div class="placeholder-section" style="margin-top:12px">
+        <p class="placeholder-text"><strong>Glossary tie-in:</strong> Core assets = <em>Silver</em>; Shared views = <em>Gold-Shared</em>; QSC extensions = <em>Gold-Domain</em>; Cross-domain products = <em>Gold-Product</em>.</p>
+    </div>
+  </div>
+
+  <div class="placeholder-content">
+      <h2 id="dualLayerTitle">Dual-Layer Data Products — Step-by-Step</h2>
+
+      <p class="placeholder-text"><strong>1) Define keys &amp; semantics (Core):</strong>
+        <code>MATERIAL_ID</code>, <code>SITE_CODE</code>, <code>BOM_ID</code>, <code>INVENTORY_DATE</code>.
+      </p>
+
+      <p class="placeholder-text"><strong>2) Core schemas:</strong></p>
+      <pre class="placeholder-text" style="white-space:pre-wrap;margin:8px 0 0;">
+material_core(material_id, material_type, base_uom, global_status)
+bom_core(material_id, bom_id, component_material_id, qty_per)
+inventory_core(material_id, site_code, on_hand_qty, blocked_qty, inventory_date)
+      </pre>
+
+      <p class="placeholder-text"><strong>3) QSC Extension (child only, no Core duplication):</strong></p>
+      <pre class="placeholder-text" style="white-space:pre-wrap;margin:8px 0 0;">
+qsc_batch_quality_ext(material_id, site_code, batch_id, manufacture_ts,
+                    qa_release_ts, assay_result_pct, deviation_flag)
+      </pre>
+
+      <p class="placeholder-text"><strong>4) Contracts:</strong>
+        Core = enterprise standard; Extension = QSC-owned; must join on declared keys.
+      </p>
+
+      <p class="placeholder-text"><strong>5) Catalog:</strong>
+        Tag as <em>core</em> vs <em>extension</em>; show lineage and sample joins.
+      </p>
+
+      <p class="placeholder-text"><strong>6) Usage:</strong>
+        Enterprise = Core; QSC = Core + Extension.
+      </p>
+
+      <p class="placeholder-text"><strong>7) Change:</strong>
+        Core = rare, major versions; Extension = faster, minor versions.
+      </p>
+
+      <p class="placeholder-text" style="margin-top:12px;">
+        <a href="index.html#page=3">← Back to Lineage Diagram</a>
+      </p>
+    </div>
+
+  
+
+  <!-- JS is optional here; include if you reuse components -->
+  <script src="app.js" defer></script>
+</body>
+</html>
