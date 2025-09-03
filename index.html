@@ -78,7 +78,7 @@
             <li class="placeholder-text">The Central Data Office team partners with all domains to enable Data Foundation.</li>
             <li class="placeholder-text">Data quality and trust are not yet high, but teams are open to improvement ideas and discussion.</li>
             <li class="placeholder-text">A minimal environment is available with: Data Fabric (metadata, policy, lineage, automation) and 
-                enables a Data-Mesh operating model (domain ownership, federated governance), resulting in clear accountability, and possible reuse across domains.</li>
+                enables a data mesh operating model (domain ownership, federated governance), resulting in clear accountability, and possible reuse across domains.</li>
           </ul>
                   
     </div>
@@ -105,14 +105,14 @@
         <ul>
           
           <li class="placeholder-text">
-            <strong>Align QSC with enterprise vision by building on standard Core Assets and function-specific Views.</strong>
+            <strong>Align QSC with enterprise vision by building on standard Source and Consumer Data Products.</strong>
             <ul>
-              <li class="placeholder-text"><em>Core Assets (Foundational)</em>: Leverage canonical, governed entities (Stock Quantity, Stock Valuation, SKU Cost) with enterprise contracts, lineage, and SLAs. 
-                QSC contributes domain expertise to ensure these assets meet real operational requirements such as real-time inventory visibility.</li>
-              <li class="placeholder-text"><em>Shared Views (QSC-Specific)</em>:  Build curated, reusable views from Core Assets that capture QSC business rules 
-                (Supplier Master with lead times, Stock Movement with quality flags, Cost Structure with variance tracking).</li>
-              <li class="placeholder-text"><em>Cross-Domain Data Products</em>:  Compose products serving outcomes across domains 
-                (Inventory Optimization Engine, Working Capital Analytics) by joining our views with other domains' data products.</li>
+              <li class="placeholder-text"><em>Source Data Products (Core/Foundational)</em>: Standardized, governed entities (e.g., Stock Quantity, Stock Valuation, Material Cost)
+                 with contracts, lineage, SLAs. QSC contributes domain expertise to ensure they meet real operational needs (e.g., near-real-time inventory visibility).</li>
+              <li class="placeholder-text"><em>Consumer Data Products (Curated/Composable)</em>: Outcome-specific compositions from multiple Source products 
+                (e.g., Supplier Master with lead times, Stock Movement with quality flags, Cost Structure with variance tracking).</li>
+              <li class="placeholder-text"><em>Cross-Domain Data Products</em>: Products serving outcomes across domains (Inventory Optimization Engine, Working Capital Analytics)
+                 by composing Consumer and Source products across the mesh.</li>
             </ul>
           </li>
         </ul>
@@ -121,9 +121,9 @@
       <div class="placeholder-section">
         <h2>Implementation</h2>
         <ul>
-          <li class="placeholder-text"><strong>Fabric foundation:</strong> Support metadata, lineage, and policy-as-code applied to Core Assets.</li>
-          <li class="placeholder-text"><strong>Reusable layer:</strong>  QSC owns our Shared Views and Cross-Domain Products while leveraging enterprise-governed Core Assets.</li>
-          <li class="placeholder-text"><strong>Product thinking:</strong> Applied to data with clear ownership, discoverability, and reusability.</li>
+          <li class="placeholder-text"><strong>Fabric foundation:</strong> Metadata, lineage, and policy-as-code applied to Source products; virtualization layer enables virtual consumers when materialization is not required.</li>
+          <li class="placeholder-text"><strong>Reusable layer:</strong> QSC owns its Consumer products while leveraging enterprise-governed Source products.</li>
+          <li class="placeholder-text"><strong>Product thinking:</strong> Clear ownership, discoverability, contracts, and reusability across both Source and Consumer products.</li>
         </ul>
       </div>
 
@@ -139,18 +139,18 @@
 
     <!-- TL;DR -->
     <div class="tldr" role="note" aria-label="How to read this diagram">
-        <b>Read top → bottom:</b> ① <b>Core Assets</b> (foundational data products; source-domain owned) → ② <b>Shared Views</b> (standardized logic; producing-domain owned) → ③ <b>Domain Products</b> (business outcomes).
+        <b>Read top → bottom:</b> ① <b>Source Data Products</b> (foundational data products; source-domain owned) → ② <b>Consumer Data Products</b> (standardized logic; producing-domain owned) → ③ <b>Cross-Domain Products</b> (business outcomes).
         <p>Drafted for illustrative purposes only.</p>
     </div>
 
     <div class="lineage-container">
       <svg class="lineage-svg" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" aria-label="Lineage diagram">
         <title id="lineageTitle">Cross-Domain Data Lineage Diagram</title>
-        <desc id="lineageDesc">Core Assets feed Shared Views; domains assemble cross-domain data products across Quality Supply Chain, Commercial, R&amp;D, and Finance.</desc>
+        <desc id="lineageDesc">Source Data Products feed Consumer Data Products; domains assemble cross-domain outcomes across Quality Supply Chain, Commercial, R&amp;D, and Finance.</desc>
 
         <!-- Core Assets Layer -->
         <rect x="500" y="60" width="200" height="40" rx="20" fill="#a8e6cf" stroke="#7fb069" stroke-width="2"/>
-        <text x="600" y="85" text-anchor="middle" font-size="14" font-weight="bold">CORE ASSETS</text>
+        <text x="600" y="85" text-anchor="middle" font-size="14" font-weight="bold">Source Data Products</text>
 
         <!-- Assets -->
         <rect x="420" y="120" width="120" height="30" rx="15" fill="#d4edda" stroke="#7fb069"/>
@@ -167,7 +167,7 @@
 
         <!-- Views Layer -->
         <rect x="450" y="180" width="300" height="40" rx="20" fill="#ffd6cc" stroke="#ff8566" stroke-width="2"/>
-        <text x="600" y="205" text-anchor="middle" font-size="14" font-weight="bold">SHARED VIEWS</text>
+        <text x="600" y="205" text-anchor="middle" font-size="14" font-weight="bold">Consumer Data Products</text>
 
         <!-- Shared Views -->
         <rect x="50" y="250" width="100" height="25" rx="12" fill="#fff2cc" stroke="#d6b656"/>
@@ -298,10 +298,10 @@
         <text x="200" y="582" text-anchor="middle" font-size="14" font-weight="bold">Legend</text>
 
         <line x1="70" y1="605" x2="90" y2="605" stroke="#999" stroke-width="1"/>
-        <text x="100" y="610" font-size="11">Asset to View Connection</text>
+        <text x="100" y="610" font-size="11">Source to Consumer Connection</text>
 
         <line x1="70" y1="625" x2="90" y2="625" stroke="#4caf50" stroke-width="2"/>
-        <text x="100" y="630" font-size="11">Cross-Domain View Usage</text>
+        <text x="100" y="630" font-size="11">Cross-Domain Usage</text>
 
         <rect x="70" y="645" width="15" height="15" fill="#e8f5e8" stroke="#4caf50"/>
         <text x="95" y="657" font-size="11">Quality Supply Chain</text>
@@ -316,20 +316,20 @@
         <text x="95" y="717" font-size="11">Finance</text>
 
         <rect x="70" y="725" width="15" height="15" fill="#fff2cc" stroke="#d6b656"/>
-        <text x="95" y="737" font-size="11">Shared Views</text>
+        <text x="95" y="737" font-size="11">Consumer Data Products</text>
       
         <!-- Ownership note -->
       <rect x="440" y="560" width="360" height="200" fill="white" stroke="#ccc" rx="10"/>
       <text x="620" y="582" text-anchor="middle" font-size="14" font-weight="bold">Ownership Model</text>
-      <text x="450" y="606" font-size="11">• Core Assets → owned by source domain (per item label);</text>
-      <text x="450" y="626" font-size="11">• Shared Views → owned by producing domain (per item label);</text>
+      <text x="450" y="606" font-size="11">• Source DP → owned by source domain (per item label);</text>
+      <text x="450" y="626" font-size="11">• Consumer DP → owned by producing domain (per item label);</text>
       <text x="450" y="646" font-size="11">• Platform stewards policies, lineage, and DQ across all.</text>
 
       <!-- Insights (moved to right side; no overlap) -->
       <rect x="830" y="560" width="360" height="200" fill="white" stroke="#ccc" rx="10"/>
       <text x="1010" y="582" text-anchor="middle" font-size="14" font-weight="bold">Cross-Domain Insights</text>
       <text x="850" y="610" font-size="11">• Supplier Master View serves both Quality &amp; Risk</text>
-      <text x="850" y="630" font-size="11">• SKU Master View spans Commercial &amp; R&amp;D</text>
+      <text x="850" y="630" font-size="11">• Material Master View spans Commercial &amp; R&amp;D</text>
       <text x="850" y="650" font-size="11">• Market Trend View supports R&amp;D &amp; Commercial</text>
       <text x="850" y="670" font-size="11">• Cost Structure View bridges R&amp;D &amp; Finance</text>
       <text x="850" y="690" font-size="11">• Risk Exposure View connects Quality &amp; Finance</text>
@@ -402,12 +402,13 @@
 
   <!-- TL;DR and scanning tip -->
   <div class="tldr">
-    <b>How to scan:</b> start with <b>Domain</b> → read the <b>Business Purpose</b> (the “why”) → confirm the <b>Product</b> and its top <b>Upstream Data Products (Views & Core)</b> → see <b>Cross-Domain</b> links → contact the <b>Owner</b>. 
+    <b>How to scan:</b> start with <b>Domain</b> → read the <b>Business Purpose</b> (the “why”) → confirm the <b>Product</b> and its top <b>Upstream Data Products (Source & Consumer)</b> 
+    → see <b>Cross-Domain</b> links → contact the <b>Owner</b>. 
   </div>
   <!-- Micro legend for tags -->
   <p id="dpd-help" class="table-note">
-    <span class="tag asset-tag">Core Asset</span>
-    <span class="tag view-tag">Primary View</span>
+    <span class="tag asset-tag">Source</span>
+    <span class="tag view-tag">Consumer</span>
     <span class="tag cross-domain">Cross-Domain</span>
     
   </p>
@@ -419,7 +420,7 @@
           <th>Domain</th>
           <th>Business Purpose (Outcome + Metric)</th>
           <th>Data Product</th>
-          <th>Upstream Data Products and Views</th>
+          <th>Upstream Data Products</th>
           <th>Cross-Domain Dependencies</th>
           <th>Owner</th>
           <th>SLA / Trust Anchor</th>
@@ -456,14 +457,14 @@
           <td>Quality Inspection Analytics</td>
           <td>
             <span class="tag view-tag">Quality Control</span>
-            <span class="tag view-tag">SKU Master</span>
+            <span class="tag view-tag">Material Master</span>
             <span class="tag view-tag">Cost Center</span>
             <span class="tag view-tag">Inspection History</span>
-            <span class="tag asset-tag">SKU Cost</span>
+            <span class="tag asset-tag">Material Cost</span>
             <span class="tag asset-tag">Stock Valuation</span>
           </td>
           <td>
-            <span class="tag cross-domain">SKU Master → Commercial, R&amp;D</span>
+            <span class="tag cross-domain">Material Master → Commercial, R&amp;D</span>
             <span class="tag cross-domain">Quality Control → All Domains</span>
           </td>
           <td>QSC — Quality Analytics (PO)</td>
@@ -519,7 +520,7 @@
             <span class="tag view-tag">Product Pricing</span>
             <span class="tag view-tag">Cost Structure</span>
             <span class="tag view-tag">Market Segment</span>
-            <span class="tag asset-tag">SKU Cost</span>
+            <span class="tag asset-tag">Material Cost</span>
             <span class="tag asset-tag">Stock Valuation</span>
           </td>
           <td>
@@ -557,7 +558,7 @@
             <span class="tag view-tag">Development Cost</span>
             <span class="tag view-tag">Market Potential</span>
             <span class="tag view-tag">Competitive Landscape</span>
-            <span class="tag asset-tag">SKU Cost</span>
+            <span class="tag asset-tag">Material Cost</span>
             <span class="tag asset-tag">Stock Valuation</span>
           </td>
           <td>
@@ -578,7 +579,7 @@
             <span class="tag view-tag">Technology Roadmap</span>
               <span class="tag view-tag">Patent Portfolio</span>
             <span class="tag asset-tag">Stock Valuation</span>
-            <span class="tag asset-tag">SKU Cost</span>
+            <span class="tag asset-tag">Material Cost</span>
           </td>
           <td>
             <span class="tag cross-domain">Budget Allocation → Finance</span>
@@ -594,7 +595,6 @@
           <td>Market Opportunity Analyzer</td>
           <td>
             <span class="tag view-tag">Market Research</span>
-            <span class="tag view-tag">Customer Needs</span>
             <span class="tag view-tag">Customer Needs</span>
             <span class="tag view-tag">Technology Feasibility</span>
             <span class="tag asset-tag">Stock Quantity</span>
@@ -658,7 +658,7 @@
             <span class="tag view-tag">Margin Analysis</span>
             <span class="tag view-tag">Variance Analysis</span>
             <span class="tag view-tag">Budget vs Actual</span>
-            <span class="tag asset-tag">SKU Cost</span>
+            <span class="tag asset-tag">Material Cost</span>
             <span class="tag asset-tag">Stock Valuation</span>
           </td>
           <td>
@@ -680,7 +680,7 @@
             <span class="tag view-tag">Portfolio Diversification View</span>
             <span class="tag asset-tag">Stock Quantity</span>
             <span class="tag asset-tag">Stock Valuation</span>
-            <span class="tag asset-tag">SKU Cost</span>
+            <span class="tag asset-tag">Material Cost</span>
           </td>
           <td>
             <span class="tag cross-domain">Risk Exposure → Quality</span>
@@ -705,11 +705,11 @@
     </div>
     <div class="stat-card">
       <div class="stat-number">3</div>
-      <div class="stat-label">Core Assets</div>
+      <div class="stat-label">Source Data Products</div>
     </div>
     <div class="stat-card">
       <div class="stat-number">45+</div>
-      <div class="stat-label">Views in Catalog</div>
+      <div class="stat-label">Data Products in Catalog</div>
     </div>
     <div class="stat-card">
       <div class="stat-number">25+</div>
@@ -759,15 +759,15 @@
       <ul>
         <li class="placeholder-text"><strong>Prioritization Framework:</strong></li>
           <ul>
-            <li class="placeholder-text"><strong>High Impact, Low Risk First:</strong> Start with reference data (supplier master, SKU master) where inconsistencies cause visible business pain but technical risk is manageable.</li>
-            <li class="placeholder-text"><strong>Critical Path Analysis:</strong> Map dependencies - migrate upstream Core Assets before downstream Cross-Domain Products to avoid cascading failures.</li>
+            <li class="placeholder-text"><strong>High Impact, Low Risk First:</strong> Start with reference data (Supplier master, Material master).</li>
+            <li class="placeholder-text"><strong>Critical Path Analysis:</strong> Map dependencies, migrate upstream Source products before downstream Consumer products.</li>
             <li class="placeholder-text"><strong>Business Continuity Gates:</strong> No legacy system shutdown until new shared asset meets 100% of critical use cases with equivalent or better performance.</li>
           </ul>
         <li class="placeholder-text"><strong>Contingency Planning:</strong></li>
           <ul>
-            <li class="placeholder-text"><strong>Rollback Strategy:</strong> Maintain parallel systems with automated fallback support for 90 days post-migration for critical assets.</li>
-            <li class="placeholder-text"><strong>Performance Guarantees:</strong> If shared assets don't meet domain-specific SLAs, domain retains right to enhanced local views or temporary exemptions.</li>
-            <li class="placeholder-text"><strong>Stakeholder Compensation:</strong> Functions that contribute high-value assets to shared foundation receive priority support and enhanced capabilities.</li>
+            <li class="placeholder-text"><strong>Rollback Strategy:</strong> Keep parallel systems for 90 days post-migration for critical assets.</li>
+            <li class="placeholder-text"><strong>Performance Guarantees:</strong> If shared assets miss SLAs, allow temporary local views or exemptions.</li>
+            <li class="placeholder-text"><strong>Stakeholder Compensation:</strong> Priority support for functions contributing high-value assets.</li>
           </ul>
       </ul>
     </div>
@@ -799,7 +799,7 @@
             <ul>
               <li class="placeholder-text"><strong>Duplicate data processing cost reduction (target: 40% by Year 1)</strong></li>
               <li class="placeholder-text"><strong>Time-to-insight improvement (target: 50% faster analytics delivery)</strong></li>
-              <li class="placeholder-text"><strong>Cross-domain collaboration increase (measured by shared view usage)</strong></li>
+              <li class="placeholder-text"><strong>Cross-domain collaboration increase (measured by shared data product usage)</strong></li>
               <li class="placeholder-text"><strong>Data-driven decision quality (reduction in data-related business errors)</strong></li>
               <li class="placeholder-text"><strong>Regulatory compliance improvement (audit finding reduction)</strong></li>
             </ul>
@@ -872,7 +872,7 @@
             <!-- Prefer h2 inside content to keep a single h1 per page -->
             <h2>Recap</h2>
             <ul>
-              <li class="placeholder-text"><strong>Align local needs with enterprise assets via the three-layer model (Core → Views → Products).</strong></li>
+              <li class="placeholder-text"><strong>Align local needs with enterprise assets via the three-layer model (Source → Consumer → Cross-Domain).</strong></li>
               <li class="placeholder-text"><strong>Make ownership explicit, and drive adoption with trust metrics and transparent engagement.</strong></li>
             </ul>
 
@@ -909,8 +909,8 @@
 
 
 
+
 <script src="app.js" defer></script>
 
 </body>
 </html>
-
